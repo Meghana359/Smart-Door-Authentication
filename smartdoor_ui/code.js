@@ -1,30 +1,14 @@
-function getURLParams(paramKey) {
-    const params = new URLSearchParams(document.location.search);
-    var s = params.get(paramKey);
-    return s;
-}
-
-function getImageURL() {
-    var fragmentNumber = getURLParams('fragmentNumber');
-    var url = "https://knownfacesphotos.s3.amazonaws.com/" + fragmentNumber + ".jpg";
-    return url;
-}
-
 function submit() 
 {
-    var fragmentNumber = getURLParams('fragmentNumber');
-    var name = document.getElementById("name").value;
-    var number = document.getElementById("number").value;
+    var otp = document.getElementById("otp").value;
     var apigClient = apigClientFactory.newClient();
-    var msg = "Could not update the visitor information";
+    var msg = "OTP not found, Access Denied";
 	let params = {};
 	var body = {
-        "fragmentNumber": fragmentNumber,
-        "name" : name,
-        "number" : number
+        "otp" : otp
     };
     console.log(body);
-    apigClient.visitorPost(params,body)
+    apigClient.rootPost(params,body)
 	.then(function(result){
         msg = result['data']['body'];
         console.log(msg);
