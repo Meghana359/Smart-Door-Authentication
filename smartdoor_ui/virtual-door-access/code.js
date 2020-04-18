@@ -12,7 +12,8 @@ function submit()
 	.then(function(result){
         msg = result['data']['body'];
         console.log(msg);
-        document.getElementById("response").innerHTML = '<h4 style="color:green">' + msg + '</h4>';
+        document.getElementById("response").style="height:60px;width:180px;display:inline-block;font-size:20px;background: white"
+        document.getElementById("response").innerHTML = '<h4 style="color:green;margin:5px">' + msg + '</h4>';
 	}).catch(function(result) {
         console.log("ERROR: " + result);
         document.getElementById("response").innerHTML = msg;
