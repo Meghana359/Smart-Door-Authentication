@@ -15,6 +15,7 @@ def validate_otp(otp):
     for i in record['Items']:
         if otp == str(i['OTP']):
             id = i['ID']
+            resposne = table1.delete_item(Key={"ID":id})
             break
     print("FaceId found:%s" %id)
     if id:
@@ -29,7 +30,6 @@ def get_name(id):
     if item:
         name = item['name']
     return name
-    
     
 def lambda_handler(event, context):
     print(event)
