@@ -4,10 +4,10 @@ Smart Door Authentication system uses AWS KInesis Video Stream and AWS Rekogniti
 
 
 ### Installing Gstream plugin
-[Download and Configure the C++ Producer Library Code](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producersdk-cpp-download.html)
-[Kinesis Video Streams Producer SDK GStreamer Plugin](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/examples-gstreamer-plugin.html#examples-gstreamer-plugin-download)
+[Download and Configure the C++ Producer Library Code](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producersdk-cpp-download.html)  
+[Kinesis Video Streams Producer SDK GStreamer Plugin](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/examples-gstreamer-plugin.html#examples-gstreamer-plugin-download)  
 
-Running the gst-launch-1.0 command to start streaming both audio and raw video in Mac-OS:
+Running the gst-launch-1.0 command to start streaming both audio and raw video in Mac-OS:  
 ```gst-launch-1.0 -v avfvideosrc ! videoconvert ! vtenc_h264_hw allow-frame-reordering=FALSE realtime=TRUE max-keyframe-interval=45 ! kvssink name=sink stream-name="my_stream_name" access-key="YourAccessKeyId" secret-key="YourSecretAccessKey" osxaudiosrc ! audioconvert ! avenc_aac ! queue ! sink.```
 
 
